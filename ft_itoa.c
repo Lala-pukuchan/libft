@@ -23,20 +23,22 @@ int	ft_getpower(int p)
 	return (tenpower);
 }
 
-int	ft_getdigit(int n)
+int	ft_getdigit(unsigned int n)
 {
 	int	count;
 
+	if (n == 0)
+		return (1);
 	count = 0;
-	while (n > 1)
+	while (n > 0)
 	{
 		n /= 10;
 		count++;
 	}
-	return (count + 1);
+	return (count);
 }
 
-void	ft_convertint(char *str, int index, int n, int digit)
+void	ft_convertint(char *str, int index, unsigned int n, int digit)
 {
 	while (1 < digit)
 	{
@@ -50,25 +52,29 @@ void	ft_convertint(char *str, int index, int n, int digit)
 
 char	*ft_itoa(int n)
 {
-	int		digit;
-	char	*str;
-	int		index;
+	int				digit;
+	char			*str;
+	int				index;
+	unsigned int	num;
 
 	index = 0;
 	if (n < 0)
 	{
-		n *= (-1);
-		digit = ft_getdigit(n);
+		num = n * (-1);
+		digit = ft_getdigit(num);
 		str = malloc(digit + 2);
+		if (!str)
+			return (NULL);
 		str[index++] = '-';
 	}
 	else
 	{
-		digit = ft_getdigit(n);
+		num = n;
+		digit = ft_getdigit(num);
 		str = malloc(digit + 1);
+		if (!str)
+			return (NULL);
 	}
-	if (!str)
-		return (NULL);
-	ft_convertint(str, index, n, digit);
+	ft_convertint(str, index, num, digit);
 	return (str);
 }
