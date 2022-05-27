@@ -6,7 +6,7 @@
 /*   By: rukobaya <rukobaya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 08:44:36 by rukobaya          #+#    #+#             */
-/*   Updated: 2022/04/16 10:02:52 by rukobaya         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:31:19 by rukobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**ft_create_array(char	**array, int idx, char const *s, char c)
 		{
 			array[idx] = ft_substr(s - len, 0, len);
 			if (!array[idx])
-				return(ft_free_array(array, idx));
+				return (ft_free_array(array, idx));
 			idx++;
 		}
 	}
