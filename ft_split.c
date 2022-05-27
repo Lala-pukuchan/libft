@@ -13,55 +13,65 @@
 #include "libft.h"
 #include <stdlib.h>
 
-size_t	ft_getcount(char const *s, char c)
+int	ft_count_delimiter(char const *s, char c)
 {
-	size_t	i;
-	size_t	count;
+	int count;
+
+	count = 0;
+	while (*s != '\0')
+	{
+		if (*s == c)
+			count++;
+		s++;
+	}
+	return (count);
+}
+
+char	**ft_free_array(char	**array, int idx)
+{
+	int	i;
 
 	i = 0;
-	count = 0;
-	while (s[i] != '\0')
+	while (i < idx)
 	{
-		if (s[i] == c)
-			count++;
-		i++;
+		free(array[idx]);
+		array[idx] = NULL;
 	}
-	return (count + 1);
+	free(array);
+	array = NULL;
+	return (NULL);
 }
 
-void	ft_createstr(char	**array, char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	size_t	index;
-	size_t	ai;
-	size_t	si;
-
-	index = 0;
-	ai = 0;
-	si = 0;
-	while (s[index] != '\0')
-	{
-		if (s[index] == c || index == (ft_strlen(s) - 1))
-		{
-			array[ai] = malloc(index - si + 1);
-			if (index != (ft_strlen(s) - 1))
-				ft_strlcpy(array[ai], &s[si], index - si + 1);
-			else
-				ft_strlcpy(array[ai], &s[si], index - si + 2);
-			ai++;
-			si = index + 1;
-		}
-		index++;
-	}
-	array[ai] = NULL;
-}
-
-char	**ft_split(char const *s, char c)
-{
+	int		len;
+	int		idx;
 	char	**array;
 
-	array = malloc(sizeof(char *) * (ft_getcount(s, c) + 1));
+	if (!s)
+		return (NULL);
+	array = malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
 	if (!array)
 		return (NULL);
-	ft_createstr(array, s, c);
+	idx = 0;
+	while (*s != '\0')
+	{
+		while ((*s == c) && (*s != '\0'))
+			s++;
+		len = 0;
+		while ((*s != c) && (*s != '\0'))
+		{
+			s++;
+			len++;
+		}
+		if (len != 0)
+		{
+			array[idx] = ft_substr(s - len, 0, len);
+			if (!array[idx])
+				return(ft_free_array(array, idx));
+			idx++;
+		}
+	}
+	array[idx] = NULL;
 	return (array);
 }
