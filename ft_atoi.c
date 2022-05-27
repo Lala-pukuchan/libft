@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_create_int(char *str)
+#include "libft.h"
+
+int	ft_create_int(char *str)
 {
-	double	i;
+	int	i;
 
 	i = 0;
 	while (*str != '\0' && '0' <= *str && *str <= '9')
@@ -26,8 +28,8 @@ double	ft_create_int(char *str)
 
 int	ft_atoi(char *str)
 {
-	double	i;
-	int		ng;
+	int	i;
+	int	ng;
 
 	i = 0;
 	ng = 0;
