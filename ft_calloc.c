@@ -16,6 +16,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
+
 	if (nmemb != 0 && (SIZE_MAX / nmemb) < size)
 		return (NULL);
 	p = (void *)malloc(nmemb * size);

@@ -21,7 +21,6 @@ char	*ft_strchr(const char *s, int c)
 		c %= 128;
 	if (c < 0)
 		c = c % 128 + 128;
-	
 	i = 0;
 	n = ft_strlen(s) + 1;
 	while (n > 0)

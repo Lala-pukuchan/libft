@@ -48,10 +48,7 @@ char **ft_split(char const *s, char c)
 	int		idx;
 	char	**array;
 
-	if (!s)
-		return (NULL);
-	array = malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
-	if (!array)
+	if (!s || !(array = malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1))))
 		return (NULL);
 	idx = 0;
 	while (*s != '\0')
@@ -66,8 +63,7 @@ char **ft_split(char const *s, char c)
 		}
 		if (len != 0)
 		{
-			array[idx] = ft_substr(s - len, 0, len);
-			if (!array[idx])
+			if (!(array[idx] = ft_substr(s - len, 0, len)))
 				return(ft_free_array(array, idx));
 			idx++;
 		}

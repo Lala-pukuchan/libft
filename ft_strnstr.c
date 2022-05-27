@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_check_str_existence(const char *b, const char *l, int i, size_t left_len)
+size_t	ft_checkstr(const char *b, const char *l, int i, size_t left_len)
 {
 	size_t	j;
 	size_t	len;
@@ -45,7 +45,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (big[i] == little[0])
 		{
-			r = ft_check_str_existence(big, little, i, len);
+			r = ft_checkstr(big, little, i, len);
 			if (r != 0)
 				return ((char *)big + i);
 		}
