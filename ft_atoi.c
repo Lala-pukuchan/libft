@@ -6,13 +6,13 @@
 /*   By: rukobaya <rukobaya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 07:57:03 by rukobaya          #+#    #+#             */
-/*   Updated: 2022/05/07 16:46:01 by rukobaya         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:24:44 by rukobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_create_int(char *str)
+int	ft_create_int(const char *str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_create_int(char *str)
 	return (i);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	ng;
@@ -36,18 +36,14 @@ int	ft_atoi(char *str)
 	while (*str == ' ' || *str == '\f' || *str == '\n'
 		|| *str == '\r' || *str == '\t' || *str == '\v')
 		str++;
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			ng++;
 		str++;
 	}
 	i = ft_create_int(str);
-	if (ng % 2 != 0)
+	if (ng == 1)
 		i *= (-1);
-	if (i < -2147483648)
-		return (0);
-	if (2147483647 < i)
-		return (-1);
 	return (i);
 }

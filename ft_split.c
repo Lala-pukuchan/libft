@@ -6,7 +6,7 @@
 /*   By: rukobaya <rukobaya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 08:44:36 by rukobaya          #+#    #+#             */
-/*   Updated: 2022/05/27 17:31:19 by rukobaya         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:57:13 by rukobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_count_delimiter(char const *s, char c)
 			count++;
 		s++;
 	}
-	return (count);
+	return (count + 1);
 }
 
 char	**ft_free_array(char	**array, int idx)
