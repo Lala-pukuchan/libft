@@ -6,7 +6,7 @@
 /*   By: rukobaya <rukobaya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 18:08:03 by rukobaya          #+#    #+#             */
-/*   Updated: 2022/04/16 18:51:00 by rukobaya         ###   ########.fr       */
+/*   Updated: 2022/05/29 15:21:53 by rukobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const	*s, char (*f)(unsigned int, char))
 	char	*str;
 	size_t	index;
 
+	if (!s || !f)
+		return (NULL);
 	str = malloc(ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
