@@ -14,12 +14,12 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*p;
-	size_t			i;
+	char	*p;
+	size_t	i;
 
 	if (!s1 || !s2)
 		return (NULL);
-	p = (unsigned char *)ft_calloc(sizeof(char), ft_strlen(s1) + ft_strlen(s2) + 1);
+	p = (char *)ft_calloc(sizeof(char), ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!p)
 		return (NULL);
 	i = 0;
