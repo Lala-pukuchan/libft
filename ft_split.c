@@ -21,7 +21,7 @@ int	ft_count_delimiter(char const *s, char c)
 	count = 0;
 	while (*s != '\0')
 	{
-		if (s[i] != c && s[i+1] == c && i != (ft_strlen(s) - 2))
+		if (s[i] != c && s[i + 1] == c && i != (ft_strlen(s) - 2))
 			count++;
 		s++;
 	}
@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array = (char	**)malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
+	array = (char **)malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
 	if (!array)
 		return (NULL);
 	return (ft_create_array(array, 0, s, c));

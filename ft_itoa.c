@@ -61,7 +61,7 @@ char	*ft_itoa(int n)
 	{
 		num = n * (-1);
 		digit = ft_getdigit(num);
-		str = (char	*)malloc(digit + 2);
+		str = (char *)malloc(digit + 2);
 		if (!str)
 			return (NULL);
 		str[index++] = '-';
@@ -70,7 +70,7 @@ char	*ft_itoa(int n)
 	{
 		num = n;
 		digit = ft_getdigit(num);
-		str = (char	*)malloc(digit + 1);
+		str = (char *)malloc(digit + 1);
 		if (!str)
 			return (NULL);
 	}
