@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array = malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
+	array = (char	**)malloc(sizeof(char *) * (ft_count_delimiter(s, c) + 1));
 	if (!array)
 		return (NULL);
 	return (ft_create_array(array, 0, s, c));
