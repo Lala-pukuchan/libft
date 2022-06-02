@@ -11,16 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int	ft_count_delimiter(char const *s, char c)
 {
-	int	count;
+	size_t	i;
+	int		count;
 
+	i = 0;
 	count = 0;
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (s[i] != c && s[i+1] == c && i != (ft_strlen(s) - 2))
 			count++;
 		s++;
 	}
