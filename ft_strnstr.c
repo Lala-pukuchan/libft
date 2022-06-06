@@ -34,7 +34,6 @@ static size_t	ft_checkstr(const char *b, const char *l, int i, size_t rl)
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	r;
 
 	i = 0;
 	if (little[0] == '\0')
@@ -43,8 +42,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (big[i] == little[0])
 		{
-			r = ft_checkstr(big, little, i, len);
-			if (r != 0)
+			if (ft_checkstr(big, little, i, len))
 				return ((char *)big + i);
 		}
 		i++;
