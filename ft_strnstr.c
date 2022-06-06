@@ -36,8 +36,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	r;
 
-	if (!big)
-		return (NULL);
 	i = 0;
 	if (little[0] == '\0')
 		return ((char *)big);
