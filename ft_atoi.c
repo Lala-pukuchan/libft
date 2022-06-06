@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int	ft_create_int(const char *str)
+static long long	ft_create_int(const char *str)
 {
-	int	i;
+	long long	i;
 
 	i = 0;
-	while (*str != '\0' && '0' <= *str && *str <= '9')
+	while (*str != '\0' && ft_isdigit(*str))
 	{
 		i *= 10;
 		i += *str - '0';
@@ -28,13 +28,12 @@ int	ft_create_int(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	ng;
+	long long	i;
+	int			ng;
 
 	i = 0;
 	ng = 0;
-	while (*str == ' ' || *str == '\f' || *str == '\n'
-		|| *str == '\r' || *str == '\t' || *str == '\v')
+	while (*str == 32 || (9 <= *str && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -45,5 +44,5 @@ int	ft_atoi(const char *str)
 	i = ft_create_int(str);
 	if (ng == 1)
 		i *= (-1);
-	return (i);
+	return ((int)i);
 }
