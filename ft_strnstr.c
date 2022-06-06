@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_checkstr(const char *b, const char *l, int i, size_t left_len)
+static size_t	ft_checkstr(const char *b, const char *l, int i, size_t left_len)
 {
 	size_t	j;
 	size_t	len;
