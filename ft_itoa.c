@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_getpower(int p)
+static int	ft_getpower(int p)
 {
 	int	tenpower;
 
@@ -22,7 +22,7 @@ int	ft_getpower(int p)
 	return (tenpower);
 }
 
-int	ft_getdigit(unsigned int n)
+static int	ft_getdigit(unsigned int n)
 {
 	int	count;
 
@@ -37,7 +37,7 @@ int	ft_getdigit(unsigned int n)
 	return (count);
 }
 
-void	ft_convertint(char *str, int index, unsigned int n, int digit)
+static char *ft_convertint(char *str, int index, unsigned int n, int digit)
 {
 	while (1 < digit)
 	{
@@ -47,6 +47,7 @@ void	ft_convertint(char *str, int index, unsigned int n, int digit)
 	}
 	str[index++] = '0' + (n % 10);
 	str[index] = '\0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
@@ -74,6 +75,5 @@ char	*ft_itoa(int n)
 		if (!str)
 			return (NULL);
 	}
-	ft_convertint(str, index, num, digit);
-	return (str);
+	return (ft_convertint(str, index, num, digit));
 }
