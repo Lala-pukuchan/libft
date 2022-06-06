@@ -12,23 +12,23 @@
 
 #include "libft.h"
 
-int	ft_count_delimiter(char const *s, char c)
+static int	ft_count_delimiter(char const *s, char c)
 {
 	size_t	i;
 	int		count;
 
 	i = 0;
 	count = 0;
-	while (*s != '\0')
+	while (s[i] != '\0')
 	{
 		if (s[i] != c && s[i + 1] == c && i != (ft_strlen(s) - 2))
 			count++;
-		s++;
+		i++;
 	}
 	return (count + 1);
 }
 
-char	**ft_free_array(char	**array, int idx)
+static char	**ft_free_array(char **array, int idx)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ char	**ft_free_array(char	**array, int idx)
 	return (NULL);
 }
 
-char	**ft_create_array(char	**array, int idx, char const *s, char c)
+static char	**ft_create_array(char	**array, int idx, char const *s, char c)
 {
 	int		len;
 
