@@ -17,11 +17,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*pd;
 	const unsigned char	*ps;
 
-	if (!dest && !src)
+	if (dest == src)
 		return (NULL);
 	pd = (unsigned char *)dest;
 	ps = (const unsigned char *)src;
-	if (dest <= src)
+	if (dest < src)
 	{
 		ft_memcpy(pd, ps, n);
 	}
