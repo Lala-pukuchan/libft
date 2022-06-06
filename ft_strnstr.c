@@ -12,21 +12,21 @@
 
 #include "libft.h"
 
-static size_t	ft_checkstr(const char *b, const char *l, int i, size_t left_len)
+static size_t	ft_checkstr(const char *b, const char *l, int i, size_t rl)
 {
 	size_t	j;
 	size_t	len;
 
 	j = 0;
 	len = ft_strlen(l);
-	while (l[j] != '\0' && left_len > 0)
+	while (l[j] != '\0' && rl > 0)
 	{
 		if (b[i++] != l[j++])
 			return (0);
-		left_len--;
+		rl--;
 		len--;
 	}
-	if (len > 0 && left_len == 0)
+	if (len > 0 && rl == 0)
 		return (0);
 	return (1);
 }

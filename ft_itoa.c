@@ -37,7 +37,7 @@ static int	ft_getdigit(unsigned int n)
 	return (count);
 }
 
-static char *ft_convertint(char *str, int index, unsigned int n, int digit)
+static char	*ft_convertint(char *str, int index, unsigned int n, int digit)
 {
 	while (1 < digit)
 	{
