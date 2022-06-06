@@ -43,7 +43,7 @@ static char	**ft_free_array(char **array, int idx)
 	return (NULL);
 }
 
-static char	**ft_create_array(char	**array, int idx, char const *s, char c)
+static char	**ft_create_array(char **array, int idx, char const *s, char c)
 {
 	int		len;
 
