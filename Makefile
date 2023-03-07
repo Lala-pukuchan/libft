@@ -40,13 +40,17 @@ OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)
 NAME = libft.a
 
+ifdef WITH_BONUS
+OBJS += $(BONUS_OBJS)
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar r $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar r $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:
+	make WITH_BONUS=1
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
